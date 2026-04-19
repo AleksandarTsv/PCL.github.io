@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protein Comparison Tool</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="eyebrow">Life Cycle Assessment</div>
+    <h1><center>Protein <em>Impact</em><br>Calculator</center></h1>
+      <img src="images/logo.png" class="header-img" alt="protein icon">
+
+    <p class="subtitle">Compare land, water, and feed requirements across conventional<br>and alternative protein sources per kilogram of edible protein.</p>
+  </div>
+
+  <div class="grid">
+    <!-- Left: Controls -->
+    <div>
+      <div class="panel">
+        <p class="panel-title">Protein Source</p>
+        <div class="protein-list">
+          <button class="protein-btn active" data-key="beef"
+            style="--active-color:#db2b2b; --active-bg:#db2b2b(232,113,74,0.1);"
+            onclick="selectProtein('beef', this)">
+            <span class="dot"></span>
+            Beef
+            <span class="tag">Bovine</span>
+          </button>
+          <button class="protein-btn" data-key="pork"
+            style="--active-color:#e8a0cc; --active-bg:rgba(232,160,204,0.1);"
+            onclick="selectProtein('pork', this)">
+            <span class="dot"></span>
+            Pork
+            <span class="tag">Swine</span>
+          </button>
+          <button class="protein-btn" data-key="chicken"
+            style="--active-color:#f5c842; --active-bg:rgba(245,200,66,0.1);"
+            onclick="selectProtein('chicken', this)">
+            <span class="dot"></span>
+            Chicken
+            <span class="tag">Poultry</span>
+          </button>
+          <button class="protein-btn" data-key="lamb"
+            style="--active-color:#0000e4; --active-bg:#0000e4(36, 5, 235, 0.1);"
+            onclick="selectProtein('lamb', this)">
+          <span class="dot"></span>
+           Lamb
+         <span class="tag">Ovine</span>
+          </button>
+          </button>
+          <button class="protein-btn" data-key="crickets"
+            style="--active-color:#a8e063; --active-bg:rgba(168,224,99,0.1);"
+            onclick="selectProtein('crickets', this)">
+            <span class="dot"></span>
+            Crickets
+            <span class="tag">Insect</span>
+          </button>
+          <button class="protein-btn" data-key="mealworms"
+            style="--active-color:#5ecfb1; --active-bg:rgba(94,207,177,0.1);"
+            onclick="selectProtein('mealworms', this)">
+            <span class="dot"></span>
+            Mealworms
+            <span class="tag">Insect</span>
+          </button>
+        </div>
+
+        <div class="slider-wrap">
+          <div class="slider-header">
+            <span class="slider-label">Protein Amount</span>
+            <div class="slider-readout"><span id="amtVal">10</span> <span>kg</span></div>
+          </div>
+          <input type="range" id="amtSlider" min="1" max="200" value="10" step="1" oninput="update()">
+          <div class="slider-range"><span>1 kg</span><span>200 kg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Results -->
+    <div class="results-panel">
+      <div class="metric-cards">
+        <div class="metric-card" id="cardLand">
+          <div class="metric-icon"><img src="images/land.png"  alt="land"></div>
+          <div class="metric-label">Land Used</div>
+          <div class="metric-value" id="valLand">—</div>
+          <div class="metric-unit">m²</div>
+        </div>
+        <div class="metric-card" id="cardWater">
+          <div class="metric-icon"><img src="images/Water.png" style="width: 32px; height: auto;"></div>
+          <div class="metric-label">Water Used</div>
+          <div class="metric-value" id="valWater">—</div>
+          <div class="metric-unit">litres</div>
+        </div>
+        <div class="metric-card" id="cardFeed">
+          <div class="metric-icon"><img src="images/feed.png" style="width: 32px; height: auto;"</div>
+          <div class="metric-label">Feed Required</div>
+          <div class="metric-value" id="valFeed">—</div>
+          <div class="metric-unit">kg</div>
+        </div>
+      </div>
+
+      <div class="chart-block">
+        <div class="chart-title"><img src="images/land.png" style="width: 32px; height: auto;" alt="land"></span> Land use comparison (m²)</div>
+        <div id="landBars"></div>
+      </div>
+
+      <div class="chart-block">
+        <div class="chart-title"><span class="icon"><img src="images/Water.png" style="width: 32px; height: auto;"></span> Water use comparison (L)</div>
+        <div id="waterBars"></div>
+      </div>
+
+      <div class="chart-block">
+        <div class="chart-title"><span class="icon"><img src="images/feed.png" style="width: 32px; height: auto;"></span> Feed comparison (kg)</div>
+        <div id="feedBars"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <center>
+    <strong>Data sources:</strong> Feed (true FCR per kg edible protein) from Siddiqui et al. (2024), Poelaert et al. (2022),
+    Lacko et al. (2024), van Huis et al. FAO (2013), and Agri Farming / A Well-Fed World FCR compilations.
+    Land &amp; water values from Poore &amp; Nemecek (2018). Beef FCR updated to 20.0 kg/kg edible protein
+    (raw FCR 8.0, 40% edible yield). Cricket FCR updated to 2.1 kg/kg (raw FCR 1.7, 80% edible yield).
+    All figures are global averages and vary by region and farming system.
+    </center>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
