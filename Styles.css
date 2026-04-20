@@ -8,7 +8,7 @@
   --border2: rgba(255,255,255,0.14);
   --text: #e8ede9;
   --muted: #6b7a6e;
-  --accent: #617ee9;
+  --accent: #017603;
   --accent-dim: rgba(168,224,99,0.12);
   --beef: #db2b2b;
   --chicken: #f5c842;
@@ -21,9 +21,9 @@
 body {
   background: var(--bg);
    background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url('images/wallpaper.jpg');
-    backdrop-filter: blur(7px);
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+    url('images/wallpaper.png');
+    backdrop-filter: blur(3px);
    background-position: -100px;
 
     background-repeat: repeat; /* Prevents tiling */
