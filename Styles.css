@@ -291,7 +291,7 @@ input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
     align-items: center;
       margin-top: 32px;
   font-size: 8px;
-  color: var(--muted);
+  color: rgb(176, 178, 173);
   line-height: 2.2;
   border-top: 1px solid var(--border);
   padding-top: 20px;
