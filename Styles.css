@@ -23,11 +23,9 @@ body {
    background-image:
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
     url('images/wallpaper.png');
-    backdrop-filter: blur(3px);
-   background-position: -100px;
-
-    background-repeat: repeat; /* Prevents tiling */
-    background-size: auto;       /* Scales to fill the screen */
+    background-position: center center;
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-size: cover;       /* Scales to fill the screen */
     background-attachment: fixed; /* Keeps image fixed during scroll */
   color: var(--text);
   font-family: var(--font-mono);
